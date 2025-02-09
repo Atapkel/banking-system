@@ -1,0 +1,18 @@
+<form th:method="POST" th:action="@{/register}" th:object="${user}">
+    <h2>Register</h2>
+
+    <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" th:field="*{username}" required>
+        <div style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username error</div>
+    </div>
+
+    <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" th:field="*{password}" required>
+        <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</div>
+    </div>
+
+    <button type="submit" class="btn">Register</button>
+    <p class="switch-form">Already registered? <a href="/login">Login</a></p>
+</form>
